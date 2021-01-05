@@ -1,0 +1,20 @@
+[Unit]
+Description=FritzBox Docsis Statistik Exporter
+After=network.target auditd.service
+
+[Service]
+ExecStart=/home/pi/go/bin/fritzDocsis -url http://172.16.1.1 -username exporter -password PASS
+WorkingDirectory=/home/pi
+User=pi
+
+Restart=on-failure
+RestartSec=10
+startLimitIntervalSec=60
+
+
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=fritz-docsis-exporter
+
+[Install]
+WantedBy=multi-user.target
