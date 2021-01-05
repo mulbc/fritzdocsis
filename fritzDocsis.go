@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"net/url"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/philippfranke/go-fritzbox/fritzbox"
@@ -97,25 +98,31 @@ var (
 			Name: "fritz_channel_correctable_errors",
 			Help: "The total number of correctable errors on the channel",
 		},
-		[]string{"channel", "channelID", "frequency", "type", "docsisVersion"})
+		[]string{"channel", "channelID", "direction", "frequency", "docsisVersion"})
 	uncorrectableErrors = promauto.NewGaugeVec(
 		prometheus.GaugeOpts{
 			Name: "fritz_channel_uncorrectable_errors",
 			Help: "The total number of uncorrectable errors on the channel",
 		},
-		[]string{"channel", "channelID", "frequency", "type", "docsisVersion"})
+		[]string{"channel", "channelID", "direction", "frequency", "docsisVersion"})
 	mse = promauto.NewGaugeVec(
 		prometheus.GaugeOpts{
 			Name: "fritz_channel_mse",
 			Help: "The current Mean Squared Error of the channel",
 		},
-		[]string{"channel", "channelID", "frequency", "type", "docsisVersion"})
+		[]string{"channel", "channelID", "direction", "frequency", "docsisVersion"})
 	powerLevel = promauto.NewGaugeVec(
 		prometheus.GaugeOpts{
 			Name: "fritz_channel_power_level",
 			Help: "The current power level of the channel",
 		},
-		[]string{"channel", "channelID", "frequency", "type", "docsisVersion"})
+		[]string{"channel", "channelID", "direction", "frequency", "docsisVersion"})
+	connectionType = promauto.NewGaugeVec(
+		prometheus.GaugeOpts{
+			Name: "fritz_channel_connection_type",
+			Help: "The current QAM type of the channel",
+		},
+		[]string{"channel", "channelID", "direction", "frequency", "docsisVersion"})
 )
 
 func setMetrics(data *docInfo) {
@@ -123,8 +130,8 @@ func setMetrics(data *docInfo) {
 		labels := prometheus.Labels{
 			"channel":       strconv.Itoa(channel.Channel),
 			"channelID":     strconv.Itoa(channel.ChannelID),
+			"direction":     "downstream",
 			"frequency":     channel.Frequency,
-			"type":          channel.Type,
 			"docsisVersion": "3.0",
 		}
 		correctableErrors.With(labels).Set(float64(channel.CorrErrors))
@@ -133,17 +140,34 @@ func setMetrics(data *docInfo) {
 		powerLevelData, _ := strconv.ParseFloat(channel.PowerLevel, 64)
 		mse.With(labels).Set(mseData)
 		powerLevel.With(labels).Set(powerLevelData)
+		connectionTypeData, _ := strconv.ParseFloat(strings.TrimSuffix(channel.Type, "QAM"), 64)
+		connectionType.With(labels).Set(connectionTypeData)
 	}
 	for _, channel := range data.Data.ChannelDs.Docsis31 {
 		labels := prometheus.Labels{
 			"channel":       strconv.Itoa(channel.Channel),
 			"channelID":     strconv.Itoa(channel.ChannelID),
+			"direction":     "downstream",
 			"frequency":     channel.Frequency,
-			"type":          channel.Type,
 			"docsisVersion": "3.1",
 		}
 		powerLevelData, _ := strconv.ParseFloat(channel.PowerLevel, 64)
 		powerLevel.With(labels).Set(powerLevelData)
+		connectionTypeData, _ := strconv.ParseFloat(strings.TrimSuffix(channel.Type, "QAM"), 64)
+		connectionType.With(labels).Set(connectionTypeData)
+	}
+	for _, channel := range data.Data.ChannelUs.Docsis30 {
+		labels := prometheus.Labels{
+			"channel":       strconv.Itoa(channel.Channel),
+			"channelID":     strconv.Itoa(channel.ChannelID),
+			"direction":     "upstream",
+			"frequency":     channel.Frequency,
+			"docsisVersion": "3.0",
+		}
+		powerLevelData, _ := strconv.ParseFloat(channel.PowerLevel, 64)
+		powerLevel.With(labels).Set(powerLevelData)
+		connectionTypeData, _ := strconv.ParseFloat(strings.TrimSuffix(channel.Type, "QAM"), 64)
+		connectionType.With(labels).Set(connectionTypeData)
 	}
 }
 
