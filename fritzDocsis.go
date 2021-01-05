@@ -80,14 +80,12 @@ func collectFritzMetrics(client *fritzbox.Client) (docInfo, error) {
 	requestValues.Add("page", "docInfo")
 	request, err := client.NewRequest("POST", "data.lua", requestValues)
 	if err != nil {
-		log.WithError(err).Error("Issues creating fritzbox request")
-		return docInfo{}, err
+		log.WithError(err).Fatal("Issues creating fritzbox request")
 	}
 	var data docInfo
 	_, err = client.Do(request, &data)
 	if err != nil {
-		log.WithError(err).Error("Issues getting fritzbox response")
-		return docInfo{}, err
+		log.WithError(err).Fatal("Issues getting fritzbox response")
 	}
 	return data, nil
 }
