@@ -1,0 +1,240 @@
+# HELP fritz_channel_correctable_errors The total number of correctable errors on the channel
+# TYPE fritz_channel_correctable_errors gauge
+fritz_channel_correctable_errors{channel="1",channelID="6",docsisVersion="3.0",frequency="618",type="256QAM"} 60
+fritz_channel_correctable_errors{channel="10",channelID="10",docsisVersion="3.0",frequency="658",type="256QAM"} 4919
+fritz_channel_correctable_errors{channel="11",channelID="11",docsisVersion="3.0",frequency="666",type="256QAM"} 24483
+fritz_channel_correctable_errors{channel="12",channelID="12",docsisVersion="3.0",frequency="674",type="256QAM"} 100562
+fritz_channel_correctable_errors{channel="13",channelID="13",docsisVersion="3.0",frequency="682",type="256QAM"} 108608
+fritz_channel_correctable_errors{channel="14",channelID="14",docsisVersion="3.0",frequency="690",type="256QAM"} 78523
+fritz_channel_correctable_errors{channel="15",channelID="15",docsisVersion="3.0",frequency="698",type="64QAM"} 1423
+fritz_channel_correctable_errors{channel="16",channelID="16",docsisVersion="3.0",frequency="706",type="64QAM"} 20067
+fritz_channel_correctable_errors{channel="17",channelID="17",docsisVersion="3.0",frequency="714",type="64QAM"} 290481
+fritz_channel_correctable_errors{channel="18",channelID="18",docsisVersion="3.0",frequency="722",type="64QAM"} 6737
+fritz_channel_correctable_errors{channel="19",channelID="19",docsisVersion="3.0",frequency="730",type="64QAM"} 9055
+fritz_channel_correctable_errors{channel="2",channelID="2",docsisVersion="3.0",frequency="146",type="256QAM"} 268
+fritz_channel_correctable_errors{channel="20",channelID="20",docsisVersion="3.0",frequency="738",type="64QAM"} 210816
+fritz_channel_correctable_errors{channel="21",channelID="21",docsisVersion="3.0",frequency="746",type="64QAM"} 73774
+fritz_channel_correctable_errors{channel="22",channelID="22",docsisVersion="3.0",frequency="754",type="64QAM"} 200920
+fritz_channel_correctable_errors{channel="23",channelID="23",docsisVersion="3.0",frequency="762",type="64QAM"} 2.256358e+06
+fritz_channel_correctable_errors{channel="24",channelID="24",docsisVersion="3.0",frequency="770",type="64QAM"} 879134
+fritz_channel_correctable_errors{channel="25",channelID="25",docsisVersion="3.0",frequency="778",type="64QAM"} 766380
+fritz_channel_correctable_errors{channel="26",channelID="26",docsisVersion="3.0",frequency="786",type="64QAM"} 862983
+fritz_channel_correctable_errors{channel="27",channelID="27",docsisVersion="3.0",frequency="794",type="64QAM"} 200086
+fritz_channel_correctable_errors{channel="28",channelID="28",docsisVersion="3.0",frequency="802",type="64QAM"} 2.7513272e+07
+fritz_channel_correctable_errors{channel="3",channelID="3",docsisVersion="3.0",frequency="154",type="256QAM"} 362
+fritz_channel_correctable_errors{channel="4",channelID="4",docsisVersion="3.0",frequency="162",type="256QAM"} 298
+fritz_channel_correctable_errors{channel="5",channelID="5",docsisVersion="3.0",frequency="602",type="256QAM"} 45
+fritz_channel_correctable_errors{channel="6",channelID="1",docsisVersion="3.0",frequency="138",type="256QAM"} 101
+fritz_channel_correctable_errors{channel="7",channelID="7",docsisVersion="3.0",frequency="626",type="256QAM"} 8546
+fritz_channel_correctable_errors{channel="8",channelID="8",docsisVersion="3.0",frequency="642",type="256QAM"} 242
+fritz_channel_correctable_errors{channel="9",channelID="9",docsisVersion="3.0",frequency="650",type="256QAM"} 1061
+# HELP fritz_channel_mse The current Mean Squared Error of the channel
+# TYPE fritz_channel_mse gauge
+fritz_channel_mse{channel="1",channelID="6",docsisVersion="3.0",frequency="618",type="256QAM"} -36.6
+fritz_channel_mse{channel="10",channelID="10",docsisVersion="3.0",frequency="658",type="256QAM"} -34.3
+fritz_channel_mse{channel="11",channelID="11",docsisVersion="3.0",frequency="666",type="256QAM"} -34
+fritz_channel_mse{channel="12",channelID="12",docsisVersion="3.0",frequency="674",type="256QAM"} -33.4
+fritz_channel_mse{channel="13",channelID="13",docsisVersion="3.0",frequency="682",type="256QAM"} -33.4
+fritz_channel_mse{channel="14",channelID="14",docsisVersion="3.0",frequency="690",type="256QAM"} -33.4
+fritz_channel_mse{channel="15",channelID="15",docsisVersion="3.0",frequency="698",type="64QAM"} -28.4
+fritz_channel_mse{channel="16",channelID="16",docsisVersion="3.0",frequency="706",type="64QAM"} -27.6
+fritz_channel_mse{channel="17",channelID="17",docsisVersion="3.0",frequency="714",type="64QAM"} -26.7
+fritz_channel_mse{channel="18",channelID="18",docsisVersion="3.0",frequency="722",type="64QAM"} -28
+fritz_channel_mse{channel="19",channelID="19",docsisVersion="3.0",frequency="730",type="64QAM"} -27.9
+fritz_channel_mse{channel="2",channelID="2",docsisVersion="3.0",frequency="146",type="256QAM"} -37.6
+fritz_channel_mse{channel="20",channelID="20",docsisVersion="3.0",frequency="738",type="64QAM"} -26.8
+fritz_channel_mse{channel="21",channelID="21",docsisVersion="3.0",frequency="746",type="64QAM"} -27.2
+fritz_channel_mse{channel="22",channelID="22",docsisVersion="3.0",frequency="754",type="64QAM"} -26.9
+fritz_channel_mse{channel="23",channelID="23",docsisVersion="3.0",frequency="762",type="64QAM"} -25.9
+fritz_channel_mse{channel="24",channelID="24",docsisVersion="3.0",frequency="770",type="64QAM"} -26.2
+fritz_channel_mse{channel="25",channelID="25",docsisVersion="3.0",frequency="778",type="64QAM"} -26.3
+fritz_channel_mse{channel="26",channelID="26",docsisVersion="3.0",frequency="786",type="64QAM"} -26.3
+fritz_channel_mse{channel="27",channelID="27",docsisVersion="3.0",frequency="794",type="64QAM"} -26.8
+fritz_channel_mse{channel="28",channelID="28",docsisVersion="3.0",frequency="802",type="64QAM"} -26.3
+fritz_channel_mse{channel="3",channelID="3",docsisVersion="3.0",frequency="154",type="256QAM"} -37.6
+fritz_channel_mse{channel="4",channelID="4",docsisVersion="3.0",frequency="162",type="256QAM"} -37.6
+fritz_channel_mse{channel="5",channelID="5",docsisVersion="3.0",frequency="602",type="256QAM"} -37.6
+fritz_channel_mse{channel="6",channelID="1",docsisVersion="3.0",frequency="138",type="256QAM"} -38.6
+fritz_channel_mse{channel="7",channelID="7",docsisVersion="3.0",frequency="626",type="256QAM"} -35.8
+fritz_channel_mse{channel="8",channelID="8",docsisVersion="3.0",frequency="642",type="256QAM"} -35.6
+fritz_channel_mse{channel="9",channelID="9",docsisVersion="3.0",frequency="650",type="256QAM"} -35.1
+# HELP fritz_channel_power_level The current power level of the channel
+# TYPE fritz_channel_power_level gauge
+fritz_channel_power_level{channel="1",channelID="1",docsisVersion="3.1",frequency="167 - 325",type="4K"} 3.5
+fritz_channel_power_level{channel="1",channelID="6",docsisVersion="3.0",frequency="618",type="256QAM"} -6.4
+fritz_channel_power_level{channel="10",channelID="10",docsisVersion="3.0",frequency="658",type="256QAM"} -10.7
+fritz_channel_power_level{channel="11",channelID="11",docsisVersion="3.0",frequency="666",type="256QAM"} -11.5
+fritz_channel_power_level{channel="12",channelID="12",docsisVersion="3.0",frequency="674",type="256QAM"} -12.3
+fritz_channel_power_level{channel="13",channelID="13",docsisVersion="3.0",frequency="682",type="256QAM"} -12.2
+fritz_channel_power_level{channel="14",channelID="14",docsisVersion="3.0",frequency="690",type="256QAM"} -12.3
+fritz_channel_power_level{channel="15",channelID="15",docsisVersion="3.0",frequency="698",type="64QAM"} -17.8
+fritz_channel_power_level{channel="16",channelID="16",docsisVersion="3.0",frequency="706",type="64QAM"} -18.7
+fritz_channel_power_level{channel="17",channelID="17",docsisVersion="3.0",frequency="714",type="64QAM"} -19.8
+fritz_channel_power_level{channel="18",channelID="18",docsisVersion="3.0",frequency="722",type="64QAM"} -18.5
+fritz_channel_power_level{channel="19",channelID="19",docsisVersion="3.0",frequency="730",type="64QAM"} -18.6
+fritz_channel_power_level{channel="2",channelID="2",docsisVersion="3.0",frequency="146",type="256QAM"} 6.2
+fritz_channel_power_level{channel="20",channelID="20",docsisVersion="3.0",frequency="738",type="64QAM"} -19.5
+fritz_channel_power_level{channel="21",channelID="21",docsisVersion="3.0",frequency="746",type="64QAM"} -19.1
+fritz_channel_power_level{channel="22",channelID="22",docsisVersion="3.0",frequency="754",type="64QAM"} -19.4
+fritz_channel_power_level{channel="23",channelID="23",docsisVersion="3.0",frequency="762",type="64QAM"} -20.6
+fritz_channel_power_level{channel="24",channelID="24",docsisVersion="3.0",frequency="770",type="64QAM"} -20.1
+fritz_channel_power_level{channel="25",channelID="25",docsisVersion="3.0",frequency="778",type="64QAM"} -20.1
+fritz_channel_power_level{channel="26",channelID="26",docsisVersion="3.0",frequency="786",type="64QAM"} -20
+fritz_channel_power_level{channel="27",channelID="27",docsisVersion="3.0",frequency="794",type="64QAM"} -19.2
+fritz_channel_power_level{channel="28",channelID="28",docsisVersion="3.0",frequency="802",type="64QAM"} -18.8
+fritz_channel_power_level{channel="3",channelID="3",docsisVersion="3.0",frequency="154",type="256QAM"} 5.9
+fritz_channel_power_level{channel="4",channelID="4",docsisVersion="3.0",frequency="162",type="256QAM"} 5.9
+fritz_channel_power_level{channel="5",channelID="5",docsisVersion="3.0",frequency="602",type="256QAM"} -4.8
+fritz_channel_power_level{channel="6",channelID="1",docsisVersion="3.0",frequency="138",type="256QAM"} 5.8
+fritz_channel_power_level{channel="7",channelID="7",docsisVersion="3.0",frequency="626",type="256QAM"} -7.8
+fritz_channel_power_level{channel="8",channelID="8",docsisVersion="3.0",frequency="642",type="256QAM"} -8.8
+fritz_channel_power_level{channel="9",channelID="9",docsisVersion="3.0",frequency="650",type="256QAM"} -9.9
+# HELP fritz_channel_uncorrectable_errors The total number of uncorrectable errors on the channel
+# TYPE fritz_channel_uncorrectable_errors gauge
+fritz_channel_uncorrectable_errors{channel="1",channelID="6",docsisVersion="3.0",frequency="618",type="256QAM"} 0
+fritz_channel_uncorrectable_errors{channel="10",channelID="10",docsisVersion="3.0",frequency="658",type="256QAM"} 0
+fritz_channel_uncorrectable_errors{channel="11",channelID="11",docsisVersion="3.0",frequency="666",type="256QAM"} 0
+fritz_channel_uncorrectable_errors{channel="12",channelID="12",docsisVersion="3.0",frequency="674",type="256QAM"} 0
+fritz_channel_uncorrectable_errors{channel="13",channelID="13",docsisVersion="3.0",frequency="682",type="256QAM"} 0
+fritz_channel_uncorrectable_errors{channel="14",channelID="14",docsisVersion="3.0",frequency="690",type="256QAM"} 0
+fritz_channel_uncorrectable_errors{channel="15",channelID="15",docsisVersion="3.0",frequency="698",type="64QAM"} 0
+fritz_channel_uncorrectable_errors{channel="16",channelID="16",docsisVersion="3.0",frequency="706",type="64QAM"} 0
+fritz_channel_uncorrectable_errors{channel="17",channelID="17",docsisVersion="3.0",frequency="714",type="64QAM"} 0
+fritz_channel_uncorrectable_errors{channel="18",channelID="18",docsisVersion="3.0",frequency="722",type="64QAM"} 0
+fritz_channel_uncorrectable_errors{channel="19",channelID="19",docsisVersion="3.0",frequency="730",type="64QAM"} 0
+fritz_channel_uncorrectable_errors{channel="2",channelID="2",docsisVersion="3.0",frequency="146",type="256QAM"} 7
+fritz_channel_uncorrectable_errors{channel="20",channelID="20",docsisVersion="3.0",frequency="738",type="64QAM"} 0
+fritz_channel_uncorrectable_errors{channel="21",channelID="21",docsisVersion="3.0",frequency="746",type="64QAM"} 0
+fritz_channel_uncorrectable_errors{channel="22",channelID="22",docsisVersion="3.0",frequency="754",type="64QAM"} 0
+fritz_channel_uncorrectable_errors{channel="23",channelID="23",docsisVersion="3.0",frequency="762",type="64QAM"} 0
+fritz_channel_uncorrectable_errors{channel="24",channelID="24",docsisVersion="3.0",frequency="770",type="64QAM"} 0
+fritz_channel_uncorrectable_errors{channel="25",channelID="25",docsisVersion="3.0",frequency="778",type="64QAM"} 0
+fritz_channel_uncorrectable_errors{channel="26",channelID="26",docsisVersion="3.0",frequency="786",type="64QAM"} 0
+fritz_channel_uncorrectable_errors{channel="27",channelID="27",docsisVersion="3.0",frequency="794",type="64QAM"} 0
+fritz_channel_uncorrectable_errors{channel="28",channelID="28",docsisVersion="3.0",frequency="802",type="64QAM"} 5318
+fritz_channel_uncorrectable_errors{channel="3",channelID="3",docsisVersion="3.0",frequency="154",type="256QAM"} 7
+fritz_channel_uncorrectable_errors{channel="4",channelID="4",docsisVersion="3.0",frequency="162",type="256QAM"} 0
+fritz_channel_uncorrectable_errors{channel="5",channelID="5",docsisVersion="3.0",frequency="602",type="256QAM"} 0
+fritz_channel_uncorrectable_errors{channel="6",channelID="1",docsisVersion="3.0",frequency="138",type="256QAM"} 6
+fritz_channel_uncorrectable_errors{channel="7",channelID="7",docsisVersion="3.0",frequency="626",type="256QAM"} 0
+fritz_channel_uncorrectable_errors{channel="8",channelID="8",docsisVersion="3.0",frequency="642",type="256QAM"} 0
+fritz_channel_uncorrectable_errors{channel="9",channelID="9",docsisVersion="3.0",frequency="650",type="256QAM"} 0
+# HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile="0"} 0.000182336
+go_gc_duration_seconds{quantile="0.25"} 0.000246564
+go_gc_duration_seconds{quantile="0.5"} 0.000289524
+go_gc_duration_seconds{quantile="0.75"} 0.00037125
+go_gc_duration_seconds{quantile="1"} 0.000645679
+go_gc_duration_seconds_sum 0.013508253
+go_gc_duration_seconds_count 42
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 11
+# HELP go_info Information about the Go environment.
+# TYPE go_info gauge
+go_info{version="go1.11.6"} 1
+# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
+# TYPE go_memstats_alloc_bytes gauge
+go_memstats_alloc_bytes 3.40192e+06
+# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
+# TYPE go_memstats_alloc_bytes_total counter
+go_memstats_alloc_bytes_total 1.39520432e+08
+# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
+# TYPE go_memstats_buck_hash_sys_bytes gauge
+go_memstats_buck_hash_sys_bytes 729025
+# HELP go_memstats_frees_total Total number of frees.
+# TYPE go_memstats_frees_total counter
+go_memstats_frees_total 649917
+# HELP go_memstats_gc_cpu_fraction The fraction of this program's available CPU time used by the GC since the program started.
+# TYPE go_memstats_gc_cpu_fraction gauge
+go_memstats_gc_cpu_fraction 2.7879771559449115e-05
+# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
+# TYPE go_memstats_gc_sys_bytes gauge
+go_memstats_gc_sys_bytes 731136
+# HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and still in use.
+# TYPE go_memstats_heap_alloc_bytes gauge
+go_memstats_heap_alloc_bytes 3.40192e+06
+# HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used.
+# TYPE go_memstats_heap_idle_bytes gauge
+go_memstats_heap_idle_bytes 3.375104e+06
+# HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use.
+# TYPE go_memstats_heap_inuse_bytes gauge
+go_memstats_heap_inuse_bytes 4.194304e+06
+# HELP go_memstats_heap_objects Number of allocated objects.
+# TYPE go_memstats_heap_objects gauge
+go_memstats_heap_objects 16183
+# HELP go_memstats_heap_released_bytes Number of heap bytes released to OS.
+# TYPE go_memstats_heap_released_bytes gauge
+go_memstats_heap_released_bytes 0
+# HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system.
+# TYPE go_memstats_heap_sys_bytes gauge
+go_memstats_heap_sys_bytes 7.569408e+06
+# HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.
+# TYPE go_memstats_last_gc_time_seconds gauge
+go_memstats_last_gc_time_seconds 1.6098452143980265e+09
+# HELP go_memstats_lookups_total Total number of pointer lookups.
+# TYPE go_memstats_lookups_total counter
+go_memstats_lookups_total 0
+# HELP go_memstats_mallocs_total Total number of mallocs.
+# TYPE go_memstats_mallocs_total counter
+go_memstats_mallocs_total 666100
+# HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures.
+# TYPE go_memstats_mcache_inuse_bytes gauge
+go_memstats_mcache_inuse_bytes 3456
+# HELP go_memstats_mcache_sys_bytes Number of bytes used for mcache structures obtained from system.
+# TYPE go_memstats_mcache_sys_bytes gauge
+go_memstats_mcache_sys_bytes 16384
+# HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures.
+# TYPE go_memstats_mspan_inuse_bytes gauge
+go_memstats_mspan_inuse_bytes 28796
+# HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system.
+# TYPE go_memstats_mspan_sys_bytes gauge
+go_memstats_mspan_sys_bytes 32768
+# HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place.
+# TYPE go_memstats_next_gc_bytes gauge
+go_memstats_next_gc_bytes 4.194304e+06
+# HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations.
+# TYPE go_memstats_other_sys_bytes gauge
+go_memstats_other_sys_bytes 1.307835e+06
+# HELP go_memstats_stack_inuse_bytes Number of bytes in use by the stack allocator.
+# TYPE go_memstats_stack_inuse_bytes gauge
+go_memstats_stack_inuse_bytes 819200
+# HELP go_memstats_stack_sys_bytes Number of bytes obtained from system for stack allocator.
+# TYPE go_memstats_stack_sys_bytes gauge
+go_memstats_stack_sys_bytes 819200
+# HELP go_memstats_sys_bytes Number of bytes obtained from system.
+# TYPE go_memstats_sys_bytes gauge
+go_memstats_sys_bytes 1.1205756e+07
+# HELP go_threads Number of OS threads created.
+# TYPE go_threads gauge
+go_threads 15
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 12.72
+# HELP process_max_fds Maximum number of open file descriptors.
+# TYPE process_max_fds gauge
+process_max_fds 1024
+# HELP process_open_fds Number of open file descriptors.
+# TYPE process_open_fds gauge
+process_open_fds 9
+# HELP process_resident_memory_bytes Resident memory size in bytes.
+# TYPE process_resident_memory_bytes gauge
+process_resident_memory_bytes 1.3795328e+07
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.60984271687e+09
+# HELP process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE process_virtual_memory_bytes gauge
+process_virtual_memory_bytes 9.40793856e+08
+# HELP process_virtual_memory_max_bytes Maximum amount of virtual memory available in bytes.
+# TYPE process_virtual_memory_max_bytes gauge
+process_virtual_memory_max_bytes -1
+# HELP promhttp_metric_handler_requests_in_flight Current number of scrapes being served.
+# TYPE promhttp_metric_handler_requests_in_flight gauge
+promhttp_metric_handler_requests_in_flight 1
+# HELP promhttp_metric_handler_requests_total Total number of scrapes by HTTP status code.
+# TYPE promhttp_metric_handler_requests_total counter
+promhttp_metric_handler_requests_total{code="200"} 171
+promhttp_metric_handler_requests_total{code="500"} 0
+promhttp_metric_handler_requests_total{code="503"} 0

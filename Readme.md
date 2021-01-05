@@ -20,6 +20,8 @@ How to install and set up Promtheus is out of scope, but I recommend running Pro
 
 This exporter will be available on Port 2112.
 
+An example scrape of the exporter with [all the exported metrics is available here](https://github.com/mulbc/fritzdocsis/raw/master/doc-assets/example-scrape.txt)
+
 ## Looking at the data from Grafana
 
 I have created a very simple Grafana dashboard that will show the error rate and Mean Squared Error (MSE) as well as the channel power level over time.
