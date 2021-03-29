@@ -45,11 +45,11 @@ type docInfo struct {
 			} `json:"docsis31"`
 			Docsis30 []struct {
 				Type          string  `json:"type"`
-				CorrErrors    int     `json:"corrErrors"`
+				CorrErrors    float64 `json:"corrErrors"`
 				Mse           string  `json:"mse"`
 				PowerLevel    string  `json:"powerLevel"`
 				Channel       int     `json:"channel"`
-				NonCorrErrors int     `json:"nonCorrErrors"`
+				NonCorrErrors float64 `json:"nonCorrErrors"`
 				Latency       float64 `json:"latency"`
 				ChannelID     int     `json:"channelID"`
 				Frequency     string  `json:"frequency"`
