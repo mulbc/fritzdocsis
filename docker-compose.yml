@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  fritzdocsis:
+    container_name: fritzdocsis
+    build: .
+    ports:
+      - "2112:2112/tcp"
+    restart: unless-stopped
+    entrypoint: ["./fritzDocsis", "-url", "http://fritz.box", "-username", "YOUR_USER_NAME", "-password", "YOUR_PASSWORD"]
