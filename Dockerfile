@@ -7,4 +7,4 @@ COPY fritzdocsis /
 
 EXPOSE 2112
 
-ENTRYPOINT ["./fritzDocsis"]
+ENTRYPOINT ["./fritzdocsis"]
