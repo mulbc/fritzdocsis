@@ -16,19 +16,19 @@ import (
 )
 
 type channelInfo []struct {
-	Activesub     float64 `json:"activesub"`
+	Activesub     string  `json:"activesub"`
 	Channel       int     `json:"channel"`
 	ChannelID     int     `json:"channelID"`
 	CorrErrors    float64 `json:"corrErrors"`
 	FFT           string  `json:"fft"`
 	Frequency     string  `json:"frequency"`
 	Latency       float64 `json:"latency"`
-	MER           float64 `json:"mer"`
+	MER           string  `json:"mer"`
 	Modulation    string  `json:"modulation"`
 	Mse           string  `json:"mse"`
 	Multiplex     string  `json:"multiplex"`
 	NonCorrErrors float64 `json:"nonCorrErrors"`
-	PLC           float64 `json:"plc"`
+	PLC           string  `json:"plc"`
 	PowerLevel    string  `json:"powerLevel"`
 	Type          string  `json:"type"`
 }
