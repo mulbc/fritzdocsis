@@ -1,0 +1,111 @@
+# This is an example .goreleaser.yml file with some sensible defaults.
+# Make sure to check the documentation at https://goreleaser.com
+before:
+  hooks:
+    - go mod tidy
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+    goarch:
+      - amd64
+      - arm
+      - arm64
+    goarm:
+      - 6
+      - 7
+    gobinary: "go1.18.1"
+archives:
+  - replacements:
+      linux: Linux
+      386: i386
+      amd64: x86_64
+signs:
+  - artifacts: checksum
+checksum:
+  name_template: 'checksums.txt'
+env_files:
+  github_token: ~/.github_token
+snapshot:
+  name_template: "{{ incpatch .Version }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+dockers:
+  # https://goreleaser.com/customization/docker/
+  - use: docker
+    goos: linux
+    goarch: amd64
+    image_templates:
+      - "quay.io/mulbc/fritzdocsis:{{ .Version }}-amd64"
+      - "quay.io/mulbc/fritzdocsis:latest-amd64"
+    build_flag_templates:
+      - "--platform=linux/amd64"
+      - "--label=org.opencontainers.image.created={{.Date}}"
+      - "--label=org.opencontainers.image.title={{.ProjectName}}"
+      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
+      - "--label=org.opencontainers.image.source=https://github.com/mulbc/fritzdocsis"
+      - "--label=org.opencontainers.image.version={{.Version}}"
+  - use: docker
+    goos: linux
+    goarch: arm64
+    image_templates:
+      - "quay.io/mulbc/fritzdocsis:{{ .Version }}-arm64v8"
+      - "quay.io/mulbc/fritzdocsis:latest-arm64v8"
+    build_flag_templates:
+      - "--platform=linux/arm64/v8"
+      - "--label=org.opencontainers.image.created={{.Date}}"
+      - "--label=org.opencontainers.image.title={{.ProjectName}}"
+      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
+      - "--label=org.opencontainers.image.source=https://github.com/mulbc/fritzdocsis"
+      - "--label=org.opencontainers.image.version={{.Version}}"
+  - use: docker
+    goos: linux
+    goarch: arm
+    goarm: 6
+    image_templates:
+      - "quay.io/mulbc/fritzdocsis:{{ .Version }}-armv6"
+      - "quay.io/mulbc/fritzdocsis:latest-armv6"
+    build_flag_templates:
+      - "--platform=linux/arm/v6"
+      - "--label=org.opencontainers.image.created={{.Date}}"
+      - "--label=org.opencontainers.image.title={{.ProjectName}}"
+      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
+      - "--label=org.opencontainers.image.source=https://github.com/mulbc/fritzdocsis"
+      - "--label=org.opencontainers.image.version={{.Version}}"
+  - use: docker
+    goos: linux
+    goarch: arm
+    goarm: 7
+    image_templates:
+      - "quay.io/mulbc/fritzdocsis:{{ .Version }}-armv7"
+      - "quay.io/mulbc/fritzdocsis:latest-armv7"
+    build_flag_templates:
+      - "--platform=linux/arm/v7"
+      - "--label=org.opencontainers.image.created={{.Date}}"
+      - "--label=org.opencontainers.image.title={{.ProjectName}}"
+      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
+      - "--label=org.opencontainers.image.source=https://github.com/mulbc/fritzdocsis"
+      - "--label=org.opencontainers.image.version={{.Version}}"
+docker_manifests:
+  # https://goreleaser.com/customization/docker_manifest/
+  # - name_template: quay.io/mulbc/fritzdocsis:{{ .Version }}
+  #   push_flags:
+  #     - "quay.io/mulbc/fritzdocsis:{{ .Version }}"
+  #   image_templates:
+  #     - quay.io/mulbc/fritzdocsis:{{ .Version }}-amd64
+  #     - quay.io/mulbc/fritzdocsis:{{ .Version }}-arm64v8
+  #     - quay.io/mulbc/fritzdocsis:{{ .Version }}-armv6
+  #     - quay.io/mulbc/fritzdocsis:{{ .Version }}-armv7
+  - name_template: quay.io/mulbc/fritzdocsis:latest
+    push_flags:
+      - "quay.io/mulbc/fritzdocsis:latest"
+    image_templates:
+      - quay.io/mulbc/fritzdocsis:latest-amd64
+      - quay.io/mulbc/fritzdocsis:latest-arm64v8
+      - quay.io/mulbc/fritzdocsis:latest-armv6
+      - quay.io/mulbc/fritzdocsis:latest-armv7
