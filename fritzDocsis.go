@@ -23,7 +23,7 @@ type channelInfo []struct {
 	FFT           string  `json:"fft"`
 	Frequency     string  `json:"frequency"`
 	Latency       float64 `json:"latency"`
-	MER           string  `json:"mer"`
+	Mer           string  `json:"mer"`
 	Modulation    string  `json:"modulation"`
 	Mse           string  `json:"mse"`
 	Multiplex     string  `json:"multiplex"`
@@ -107,6 +107,12 @@ var (
 			Help: "The current Mean Squared Error of the channel",
 		},
 		[]string{"channel", "channelID", "direction", "frequency", "docsisVersion"})
+	mer = promauto.NewGaugeVec(
+		prometheus.GaugeOpts{
+			Name: "fritz_channel_mer",
+			Help: "The current modulation error ratio of the channel",
+		},
+		[]string{"channel", "channelID", "direction", "frequency", "docsisVersion"})
 	powerLevel = promauto.NewGaugeVec(
 		prometheus.GaugeOpts{
 			Name: "fritz_channel_power_level",
@@ -123,8 +129,15 @@ var (
 
 func exportChannelInfo(channels channelInfo, direction string, docsisVersion string) {
 	for _, channel := range channels {
+		var channel_label int
+		// keep channel and channelid same on 7.39
+		if channel.Channel == 0 {
+			channel_label = channel.ChannelID
+		} else {
+			channel_label = channel.Channel
+		}
 		labels := prometheus.Labels{
-			"channel":       strconv.Itoa(channel.Channel),
+			"channel":       strconv.Itoa(channel_label),
 			"channelID":     strconv.Itoa(channel.ChannelID),
 			"direction":     direction,
 			"frequency":     channel.Frequency,
@@ -134,6 +147,8 @@ func exportChannelInfo(channels channelInfo, direction string, docsisVersion str
 		uncorrectableErrors.With(labels).Set(float64(channel.NonCorrErrors))
 		mseData, _ := strconv.ParseFloat(channel.Mse, 64)
 		mse.With(labels).Set(mseData)
+		merData, _ := strconv.ParseFloat(channel.Mer, 64)
+		mer.With(labels).Set(merData)
 		powerLevelData, _ := strconv.ParseFloat(channel.PowerLevel, 64)
 		powerLevel.With(labels).Set(powerLevelData)
 		var connectionTypeData float64
