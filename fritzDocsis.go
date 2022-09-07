@@ -94,37 +94,37 @@ var (
 			Name: "fritz_channel_correctable_errors",
 			Help: "The total number of correctable errors on the channel",
 		},
-		[]string{"channel", "channelID", "direction", "frequency", "docsisVersion"})
+		[]string{"channel", "channelID", "direction", "frequency", "frequency_minor", "docsisVersion"})
 	uncorrectableErrors = promauto.NewGaugeVec(
 		prometheus.GaugeOpts{
 			Name: "fritz_channel_uncorrectable_errors",
 			Help: "The total number of uncorrectable errors on the channel",
 		},
-		[]string{"channel", "channelID", "direction", "frequency", "docsisVersion"})
+		[]string{"channel", "channelID", "direction", "frequency", "frequency_minor", "docsisVersion"})
 	mse = promauto.NewGaugeVec(
 		prometheus.GaugeOpts{
 			Name: "fritz_channel_mse",
 			Help: "The current Mean Squared Error of the channel",
 		},
-		[]string{"channel", "channelID", "direction", "frequency", "docsisVersion"})
+		[]string{"channel", "channelID", "direction", "frequency", "frequency_minor", "docsisVersion"})
 	mer = promauto.NewGaugeVec(
 		prometheus.GaugeOpts{
 			Name: "fritz_channel_mer",
 			Help: "The current modulation error ratio of the channel",
 		},
-		[]string{"channel", "channelID", "direction", "frequency", "docsisVersion"})
+		[]string{"channel", "channelID", "direction", "frequency", "frequency_minor", "docsisVersion"})
 	powerLevel = promauto.NewGaugeVec(
 		prometheus.GaugeOpts{
 			Name: "fritz_channel_power_level",
 			Help: "The current power level of the channel",
 		},
-		[]string{"channel", "channelID", "direction", "frequency", "docsisVersion"})
+		[]string{"channel", "channelID", "direction", "frequency", "frequency_minor", "docsisVersion"})
 	connectionType = promauto.NewGaugeVec(
 		prometheus.GaugeOpts{
 			Name: "fritz_channel_connection_type",
 			Help: "The current QAM type of the channel",
 		},
-		[]string{"channel", "channelID", "direction", "frequency", "docsisVersion"})
+		[]string{"channel", "channelID", "direction", "frequency", "frequency_minor", "docsisVersion"})
 )
 
 func exportChannelInfo(channels channelInfo, direction string, docsisVersion string) {
@@ -136,12 +136,16 @@ func exportChannelInfo(channels channelInfo, direction string, docsisVersion str
 		} else {
 			channel_label = channel.Channel
 		}
+
+		frequency, frequency_minor, _ := strings.Cut(channel.Frequency, ".")
+
 		labels := prometheus.Labels{
-			"channel":       strconv.Itoa(channel_label),
-			"channelID":     strconv.Itoa(channel.ChannelID),
-			"direction":     direction,
-			"frequency":     channel.Frequency,
-			"docsisVersion": docsisVersion,
+			"channel":         strconv.Itoa(channel_label),
+			"channelID":       strconv.Itoa(channel.ChannelID),
+			"direction":       direction,
+			"frequency":       frequency,
+			"frequency_minor": frequency_minor,
+			"docsisVersion":   docsisVersion,
 		}
 		correctableErrors.With(labels).Set(float64(channel.CorrErrors))
 		uncorrectableErrors.With(labels).Set(float64(channel.NonCorrErrors))
