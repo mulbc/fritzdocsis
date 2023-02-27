@@ -1,0 +1,11 @@
+FROM alpine
+
+WORKDIR /
+
+RUN apk add libc6-compat
+
+COPY fritzDocsis /
+
+EXPOSE 2112
+
+ENTRYPOINT ["/fritzDocsis"]
