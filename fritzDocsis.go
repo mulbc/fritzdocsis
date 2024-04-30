@@ -166,6 +166,13 @@ func exportChannelInfo(channels channelInfo, direction string, docsisVersion str
 }
 
 func setMetrics(data *docInfo) {
+	correctableErrors.Reset()
+	uncorrectableErrors.Reset()
+	mse.Reset()
+	mer.Reset()
+	powerLevel.Reset()
+	connectionType.Reset()
+
 	exportChannelInfo(data.Data.ChannelDs.Docsis30, "downstream", "3.0")
 	exportChannelInfo(data.Data.ChannelDs.Docsis31, "downstream", "3.1")
 	exportChannelInfo(data.Data.ChannelUs.Docsis30, "upstream", "3.0")
