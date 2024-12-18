@@ -1,5 +1,6 @@
 # This is an example .goreleaser.yml file with some sensible defaults.
 # Make sure to check the documentation at https://goreleaser.com
+version: 2
 before:
   hooks:
     - go mod tidy
@@ -15,20 +16,12 @@ builds:
     goarm:
       - 6
       - 7
-    gobinary: "go1.18.1"
-archives:
-  - replacements:
-      linux: Linux
-      386: i386
-      amd64: x86_64
 signs:
   - artifacts: checksum
 checksum:
   name_template: 'checksums.txt'
 env_files:
   github_token: ~/.github_token
-snapshot:
-  name_template: "{{ incpatch .Version }}-next"
 changelog:
   sort: asc
   filters:
