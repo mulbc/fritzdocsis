@@ -5,6 +5,7 @@ go 1.21
 toolchain go1.22.6
 
 require (
+	github.com/joho/godotenv v1.5.1
 	github.com/philippfranke/go-fritzbox v0.0.0-20150306111818-ef55d262b15a
 	github.com/prometheus/client_golang v1.20.5
 	github.com/sirupsen/logrus v1.9.3

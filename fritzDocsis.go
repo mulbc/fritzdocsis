@@ -4,10 +4,12 @@ import (
 	"flag"
 	"net/http"
 	"net/url"
+	"os"
 	"strconv"
 	"strings"
 	"time"
 
+	"github.com/joho/godotenv"
 	"github.com/philippfranke/go-fritzbox/fritzbox"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
@@ -180,18 +182,36 @@ func setMetrics(data *docInfo) {
 }
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		log.WithError(err).Warn("Error loading .env file")
+	}
+
+	dotenvUsername := os.Getenv("FRITZ_USERNAME")
+	dotenvPassword := os.Getenv("FRITZ_PASSWORD")
+	dotenvURL := os.Getenv("FRITZ_URL")
+
 	flagFritzURL := flag.String("url", "http://192.168.178.1", "URL of Fritzbox")
 	flagUsername := flag.String("username", "", "Username used for FritzBox authentication [Required]")
 	flagPassword := flag.String("password", "", "Password used for FritzBox authentication [Required]")
 	flag.Parse()
 
 	if *flagUsername == "" || *flagPassword == "" {
-		log.Fatal("Username and Password need to be supplied")
+		if dotenvUsername == "" || dotenvPassword == "" {
+			log.Fatal("Username and Password need to be supplied")
+		} else {
+			*flagUsername = dotenvUsername
+			*flagPassword = dotenvPassword
+		}
+	}
+
+	if *flagFritzURL == "" && dotenvURL != "" {
+		*flagFritzURL = dotenvURL
 	}
 
 	client := fritzbox.NewClient(nil)
 	client.BaseURL, _ = url.Parse(*flagFritzURL)
-	err := client.Auth(*flagUsername, *flagPassword)
+	err = client.Auth(*flagUsername, *flagPassword)
 	if err != nil {
 		log.WithError(err).Fatal("Could not log in")
 	}
