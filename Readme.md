@@ -5,6 +5,8 @@ This project is an [Exporter for Prometheus](https://prometheus.io/docs/instrume
 
 ## Building and Running the Exporter
 
+### Native Golang binary
+
 To run the exporter:
 
 1. Clone this repository and cd into it
@@ -13,6 +15,16 @@ To run the exporter:
 1. Run `${GOPATH}/bin/fritzDocsis` to run the binary
 
 To make live easier, this repository contains a systemd service that you can use to run and auto-start the exporter once you built and installed it.
+
+### Docker / Podman container
+
+For convienience this repo is also available as a container at quay.io/mulbc/fritzdocsis.
+Images are automatically build for amd64 and multiple arm architectures - so this should run on most hardwares including your Raspberry Pi.
+
+To run this, try a command like this:
+```shell
+podman run --name fritzdocsis --publish 2112:2112 quay.io/mulbc/fritzdocsis -url http://192.168.178.1 -username admin -password secret
+```
 
 ## Scraping the Exporter via Prometheus
 
